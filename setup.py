@@ -4,7 +4,13 @@ from setuptools.command.install import install as Install
 import glob
 from subprocess import check_call, check_output
 
-MODULE = 'pynauty'
+
+# Note that the original module name is pynauty, we're going to distibute this as pynauty-nice
+# mainly in the interest of not accidentally stepping on anyone's toes
+MODULE = 'pynauty-nice'
+
+
+
 VERSION = '0.1.0'
 
 description = 'Automorphism and isomorphism of graphs'
