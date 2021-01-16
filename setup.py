@@ -1,8 +1,6 @@
 import os
-#from distutils.core import setup, Extension
-#from distutils.command.install import install as DistutilsInstall
 from setuptools import setup, Extension
-from setuptools.command.install import install as DistutilsInstall
+from setuptools.command.install import install as Install
 import glob
 from subprocess import check_call, check_output
 
@@ -54,14 +52,10 @@ def pre():
     check_call('./nauty/configure')
     check_call(['make', '-C', nautypath])
 
-class MyInstall(DistutilsInstall):
+class MyInstall(Install):
     def run(self):
         pre()
-        #print(check_output('./nauty/configure'))
-        #print(check_output(['make', '-C', nautypath]))
-        #check_call('./' + nautypath + '/make')
-#        self.do_pre_install_stuff()
-        DistutilsInstall.run(self)
+        Install.run(self)
 
 nauty_dir = 'nauty'  # nauty's source directory
 if not os.access(nauty_dir, os.R_OK | os.X_OK):
@@ -101,16 +95,4 @@ setup(name=MODULE,
         'install': MyInstall,
       },
       )
-
-#setup(
-#    name='pynauty',
-#    version='0.1.0',
-#    description='pynauty fork',
-    #install_requires=install_requires,
-#    packages=['src'],
-#    data_files=data_files,
-#    cmdclass={
-#        'install': MyInstall,
-#    },
-#    scripts=scripts
-#)
+      
