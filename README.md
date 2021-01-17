@@ -1,8 +1,8 @@
 # pynauty
 
-A pynauty fork in an effort to ease installation. Pynauty is a python wrapper around nauty, distributed under the GNU GPLv3. Nauty is an isomorphism finder, written in C, distributed under the APACHE 2.0 lisence. Previously, the two would have to be dowloaded separately from their respective websites, unpacked, built and symbolically linked. Given that that in this direction the lisences are compatible and allow it, I've decided to redistribute them together. 
+A pynauty fork in an effort to ease installation. Pynauty is a python wrapper around nauty, distributed under the GNU GPLv3. Nauty is an isomorphism finder, written in C, distributed under the APACHE 2.0 licence. Previously, the two would have to be dowloaded separately from their respective websites, unpacked, built and symbolically linked. Given that that in this direction the licences are compatible and allow it, I've decided to redistribute them together. 
 
-Note that this isn't quite finished but is sufficient for my use case, if you would like me to to change or improve anything then please let me know.
+Note that this isn't quite finished but is sufficient for my use case, if you would like me to change or improve anything then please let me know.
 
 # Initial pynauty licence
 
@@ -14,7 +14,7 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 
 You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/.
 
-# Initial nauty  (and traces) lisence
+# Initial nauty  (and traces) licence
 
 This is the license for the software package Nauty and
 Traces, package versions 2.6r3 and later.
