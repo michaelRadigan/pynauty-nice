@@ -11,13 +11,13 @@ MODULE = 'pynauty-nice'
 
 
 
-VERSION = '0.1.0'
+VERSION = '0.1.2'
 
 description = 'Automorphism and isomorphism of graphs'
 long_description = '''
 Package for testing isomorphism of graphs and computing their automorphism group. 
 
-pynauty-nice is a pynauty fork in an effort to ease installation. Pynauty is a python wrapper around nauty, distributed under the GNU GPLv3. Nauty is an isomorphism finder, written in C, distributed under the APACHE 2.0 lisence. Previously, the two would have to be dowloaded separately from their respective websites, unpacked, built and symbolically linked. Given that that in this direction the lisences are compatible and allow it, I've decided to redistribute them together.
+pynauty-nice is a pynauty fork in an effort to ease installation. Pynauty is a python wrapper around nauty, distributed under the GNU GPLv3. Nauty is an isomorphism finder, written in C, distributed under the APACHE 2.0 licence. Previously, the two would have to be dowloaded separately from their respective websites, unpacked, built and symbolically linked. Given that that in this direction the licences are compatible and allow it, I've decided to redistribute them together.
 
 There is no change to the underlying pynauty package, written by Peter Dobsan: pdobsan@gmail.com.
 
