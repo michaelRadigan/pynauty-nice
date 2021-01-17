@@ -10,8 +10,6 @@ from subprocess import check_call, check_output
 MODULENAME = 'pynauty-nice'
 MODULE='pynauty'
 
-
-
 VERSION = '0.1.6'
 
 description = 'Automorphism and isomorphism of graphs'

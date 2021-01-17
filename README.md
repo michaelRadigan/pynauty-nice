@@ -4,6 +4,34 @@ A pynauty fork in an effort to ease installation. Pynauty is a python wrapper ar
 
 Note that this isn't quite finished but is sufficient for my use case, if you would like me to change or improve anything then please let me know.
 
+# Installaion
+
+```
+pip install pynauty-nice
+```
+Alternatively, to install at the user level 
+
+```
+pip install --user pynauty-nice
+```
+
+# Example usage and installation in a virtualenv 
+
+
+``` 
+$ python3 -m venv nautyexample
+$ source nautyexample/bin/activate
+$ pip install pynauty-nice
+$ python3
+>>> from pynauty import *
+>>> g = Graph(5)
+>>> g.connect_vertex(0, [1, 2, 3])
+>>> g.connect_vertex(2, [1, 3, 4])
+>>> g.connect_vertex(4, [3])
+>>> autgrp(g)
+([[3, 4, 2, 0, 1]], 2.0, 0, [0, 1, 2, 0, 1], 3)
+```
+
 # Initial pynauty licence
 
 Copyright (c) 2015 Peter Dobsan
