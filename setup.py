@@ -7,11 +7,12 @@ from subprocess import check_call, check_output
 
 # Note that the original module name is pynauty, we're going to distibute this as pynauty-nice
 # mainly in the interest of not accidentally stepping on anyone's toes
-MODULE = 'pynauty-nice'
+MODULENAME = 'pynauty-nice'
+MODULE='pynauty'
 
 
 
-VERSION = '0.1.2'
+VERSION = '0.1.6'
 
 description = 'Automorphism and isomorphism of graphs'
 long_description = '''
@@ -51,11 +52,12 @@ packages = [MODULE]
 install_requires = []
 real_path = os.path.dirname(os.path.realpath(__file__))
 
-scripts=['install.sh', 'Makefile']
+scripts=['Makefile']
 nautypath = os.path.join(real_path, 'nauty')
 
 data_files= [
     (nautypath, [file for file in glob.iglob('nauty/*')]),
+    (real_path, [file for file in glob.iglob('pynauty/*')]),
 ]
 
 
@@ -75,19 +77,19 @@ if not os.access(nauty_dir, os.R_OK | os.X_OK):
 
 ext_pynauty = Extension(
     name=MODULE + '.nautywrap',
-    sources=[pynauty_dir + '/' + 'nautywrap.c', ],
+    sources=[pynauty_dir + '/' + 'nautywrap.c'],
     extra_compile_args=['-O4', '-fPIC'],
     extra_objects=[nauty_dir + '/' + 'nauty.o',
                    nauty_dir + '/' + 'nautil.o',
                    nauty_dir + '/' + 'naugraph.o',
                    nauty_dir + '/' + 'schreier.o',
-                   nauty_dir + '/' + 'naurng.o',
+                   nauty_dir + '/' + 'naurng.o'
                    ],
     include_dirs=[nauty_dir, pynauty_dir]
 )
 ext_modules = [ext_pynauty]
 
-setup(name=MODULE,
+setup(name=MODULENAME,
       version=VERSION,
       description=description, 
       long_description=long_description,
