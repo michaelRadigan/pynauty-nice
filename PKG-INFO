@@ -22,7 +22,6 @@ Classifier: Programming Language :: Python :: 3.5
 Classifier: Programming Language :: C
 Classifier: Topic :: Scientific/Engineering
 Classifier: Topic :: Scientific/Engineering :: Mathematics
-Classifier: Topic :: Scientific/Engineering :: Computing Science
 Classifier: Intended Audience :: Science/Research
 Classifier: Intended Audience :: Education
 Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
