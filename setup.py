@@ -8,9 +8,9 @@ from subprocess import check_call, check_output
 # Note that the original module name is pynauty, we're going to distibute this as pynauty-nice
 # mainly in the interest of not accidentally stepping on anyone's toes
 MODULENAME = 'pynauty-nice'
-MODULE='pynauty'
+MODULE = 'pynauty'
 
-VERSION = '0.1.6'
+VERSION = '0.1.7'
 
 description = 'Automorphism and isomorphism of graphs'
 long_description = '''
@@ -50,12 +50,13 @@ packages = [MODULE]
 install_requires = []
 real_path = os.path.dirname(os.path.realpath(__file__))
 
-scripts=['Makefile']
+scripts = ['Makefile']
 nautypath = os.path.join(real_path, 'nauty')
 
-data_files= [
+data_files = [
     (nautypath, [file for file in glob.iglob('nauty/*')]),
     (real_path, [file for file in glob.iglob('pynauty/*')]),
+    (pynauty_dir + '/' + 'nautywrap.h')
 ]
 
 
@@ -63,10 +64,12 @@ def pre():
     check_call('./nauty/configure')
     check_call(['make', '-C', nautypath])
 
+
 class MyInstall(Install):
     def run(self):
         pre()
         Install.run(self)
+
 
 nauty_dir = 'nauty'  # nauty's source directory
 if not os.access(nauty_dir, os.R_OK | os.X_OK):
@@ -81,7 +84,7 @@ ext_pynauty = Extension(
                    nauty_dir + '/' + 'nautil.o',
                    nauty_dir + '/' + 'naugraph.o',
                    nauty_dir + '/' + 'schreier.o',
-                   nauty_dir + '/' + 'naurng.o'
+                   nauty_dir + '/' + 'naurng.o',
                    ],
     include_dirs=[nauty_dir, pynauty_dir]
 )
@@ -89,10 +92,10 @@ ext_modules = [ext_pynauty]
 
 setup(name=MODULENAME,
       version=VERSION,
-      description=description, 
+      description=description,
       long_description=long_description,
-      author=author, 
-      author_email=author_email, 
+      author=author,
+      author_email=author_email,
       url=url,
       platforms=platforms,
       license=license,
@@ -102,8 +105,8 @@ setup(name=MODULENAME,
       data_files=data_files,
       ext_modules=ext_modules,
       classifiers=classifiers,
+      headers=[pynauty_dir + '/' + 'nautywrap.h'],
       cmdclass={
-        'install': MyInstall,
+          'install': MyInstall,
       },
       )
-      
